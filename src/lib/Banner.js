@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	width: 100%;
+	background-color: white;
 	border-bottom: 2px solid gray;
 	display: flex;
 	justify-content: space-between;
@@ -11,6 +12,7 @@ const Text = styled.p`color: black;`;
 const Button = styled.button`
 	border: none;
 	background: none;
+	font-size: 20px;
 	color: purple;
 `;
 const Thumbnail = styled.img`
@@ -24,7 +26,7 @@ export const Banner = (props) => {
 	return (
 		<Container>
 			<div>
-				<Thumbnail scr={imageUrl} alt="thumbnail" />
+				{imageUrl && <Thumbnail scr={imageUrl} alt="thumbnail" />}
 				<Text>{text}</Text>
 			</div>
 			<div>

@@ -13,9 +13,10 @@ const Title = styled.h1`
 	color: orange;
 `;
 
-export const Home = () => {
+export const Home = ({ children }) => {
 	return (
 		<Container>
+			{children}
 			<Title>Title of website</Title>
 			<p>
 				This is a website .....<br />xxxxx xxxx <br />xxxx xxxx yyy yyyy yy
