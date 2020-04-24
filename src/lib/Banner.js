@@ -15,23 +15,27 @@ const Button = styled.button`
 	font-size: 20px;
 	color: purple;
 `;
+const Wrapper = styled.div`
+	display: flex;
+	align-items: center;
+`;
 const Thumbnail = styled.img`
 	width: 70px;
 	height: 70px;
+	object-fit: cover;
 	border: 1px solid black;
+	border-radius: 50%;
 `;
 
 export const Banner = (props) => {
-	const { text, buttonText, buttonFunction, imageUrl } = props;
+	const { text, buttons, imageUrl } = props;
 	return (
 		<Container>
-			<div>
-				{imageUrl && <Thumbnail scr={imageUrl} alt="thumbnail" />}
+			<Wrapper>
+				{imageUrl && <Thumbnail src={imageUrl} alt="thumbnail" />}
 				<Text>{text}</Text>
-			</div>
-			<div>
-				<Button onClick={() => buttonFunction()}>{buttonText}</Button>
-			</div>
+			</Wrapper>
+			<Wrapper>{buttons.map((item) => <Button onClick={() => item.function()}>{item.text}</Button>)}</Wrapper>
 		</Container>
 	);
 };
